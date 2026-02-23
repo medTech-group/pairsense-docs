@@ -34,9 +34,9 @@
 
     <p><strong>Audio recordings.</strong> When you click "Record", the extension captures microphone audio of the doctor-patient consultation. Audio is uploaded to our secure servers for transcription and is automatically deleted within 7 days.</p>
 
-    <p><strong>Transcriptions.</strong> Audio is transcribed using AssemblyAI, a third-party speech-to-text service. The resulting transcript text is stored temporarily (up to 24 hours) on our servers to perform clinical data extraction.</p>
+    <p><strong>Transcriptions.</strong> Audio is transcribed using PAIRscribe, our proprietary speech-to-text service. The resulting transcript text is stored temporarily (up to 24 hours) on our servers to perform clinical data extraction.</p>
 
-    <p><strong>Extracted clinical data.</strong> Transcripts are processed by OpenAI's language model to extract structured medical fields (e.g., symptoms, diagnoses, medications). Extracted data is stored temporarily (up to 24 hours) and is used solely to fill EMR form fields.</p>
+    <p><strong>Extracted clinical data.</strong> Transcripts are processed by PAIRvision, our proprietary AI service, to extract structured medical fields (e.g., symptoms, diagnoses, medications). Extracted data is stored temporarily (up to 24 hours) and is used solely to fill EMR form fields.</p>
 
     <p><strong>EMR page structure.</strong> The extension reads form field labels, roles, and options from the current EMR page using the browser's accessibility tree. This structural data is used to map extracted values to the correct fields. No patient data is read from the EMR — only the empty form structure.</p>
 
@@ -55,12 +55,12 @@
     <h2>3. Third-Party Services</h2>
     <p>We use the following third-party services strictly for the extension's core functionality:</p>
     <ul>
-      <li><strong>AssemblyAI</strong> — Speech-to-text transcription of audio recordings</li>
-      <li><strong>OpenAI</strong> — Clinical data extraction from transcripts and form structure analysis</li>
+      <li><strong>PAIRscribe</strong> — Our proprietary speech-to-text transcription service</li>
+      <li><strong>PAIRvision</strong> — Our proprietary AI service for clinical data extraction and form structure analysis</li>
       <li><strong>Auth0</strong> — User authentication and token management</li>
       <li><strong>Amazon Web Services (AWS)</strong> — Secure server infrastructure, data storage, and processing</li>
     </ul>
-    <p>Data sent to these services is used only for processing and is subject to their respective privacy policies and data processing agreements.</p>
+    <p>Data sent to these services is used only for processing and is governed by our internal data handling policies and AWS's data processing agreements.</p>
 
     <h2>4. Data Security</h2>
     <ul>
