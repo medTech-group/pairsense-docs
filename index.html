@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAIRsense — Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.7; background: #f9fafb; }
+    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 28px; color: #1a1a2e; margin-bottom: 8px; }
+    .effective { color: #666; font-size: 14px; margin-bottom: 36px; }
+    h2 { font-size: 20px; color: #1a1a2e; margin-top: 32px; margin-bottom: 12px; }
+    p, li { font-size: 15px; margin-bottom: 12px; }
+    ul { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    .highlight { background: #eef2ff; border-left: 3px solid #4a5acb; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 14px; }
+    a { color: #4a5acb; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PAIRsense Privacy Policy</h1>
+    <p class="effective">Effective date: February 23, 2026</p>
+
+    <p>PAIRsense ("we", "our", "the extension") is a Chrome extension that transcribes doctor-patient conversations and auto-fills Electronic Medical Record (EMR) form fields. This policy explains what data we process, how it is handled, and how it is protected.</p>
+
+    <div class="highlight">
+      <strong>Key commitment:</strong> We do not sell, share, or transfer user data to third parties for advertising, analytics, or any purpose unrelated to the extension's core functionality.
+    </div>
+
+    <h2>1. Data We Process</h2>
+
+    <p><strong>Audio recordings.</strong> When you click "Record", the extension captures microphone audio of the doctor-patient consultation. Audio is uploaded to our secure servers for transcription and is automatically deleted within 7 days.</p>
+
+    <p><strong>Transcriptions.</strong> Audio is transcribed using AssemblyAI, a third-party speech-to-text service. The resulting transcript text is stored temporarily (up to 24 hours) on our servers to perform clinical data extraction.</p>
+
+    <p><strong>Extracted clinical data.</strong> Transcripts are processed by OpenAI's language model to extract structured medical fields (e.g., symptoms, diagnoses, medications). Extracted data is stored temporarily (up to 24 hours) and is used solely to fill EMR form fields.</p>
+
+    <p><strong>EMR page structure.</strong> The extension reads form field labels, roles, and options from the current EMR page using the browser's accessibility tree. This structural data is used to map extracted values to the correct fields. No patient data is read from the EMR — only the empty form structure.</p>
+
+    <p><strong>Authentication tokens.</strong> We use Auth0 for user authentication. We receive and verify OAuth 2.0 tokens to identify the signed-in user (email and hospital affiliation). We do not store passwords.</p>
+
+    <p><strong>Cached playbooks.</strong> When the extension learns the layout of an EMR form, the field structure is cached for up to 30 days so you don't have to re-scan forms on repeat visits. Playbooks contain form field names and navigation steps — no patient data.</p>
+
+    <h2>2. Data Retention</h2>
+    <ul>
+      <li><strong>Audio files:</strong> Automatically deleted after 7 days</li>
+      <li><strong>Session data</strong> (transcripts, extractions): Automatically deleted after 24 hours</li>
+      <li><strong>Form playbook cache:</strong> Automatically deleted after 30 days</li>
+      <li><strong>Audit logs:</strong> Retained for 365 days for compliance (all patient health information is stripped before storage)</li>
+    </ul>
+
+    <h2>3. Third-Party Services</h2>
+    <p>We use the following third-party services strictly for the extension's core functionality:</p>
+    <ul>
+      <li><strong>AssemblyAI</strong> — Speech-to-text transcription of audio recordings</li>
+      <li><strong>OpenAI</strong> — Clinical data extraction from transcripts and form structure analysis</li>
+      <li><strong>Auth0</strong> — User authentication and token management</li>
+      <li><strong>Amazon Web Services (AWS)</strong> — Secure server infrastructure, data storage, and processing</li>
+    </ul>
+    <p>Data sent to these services is used only for processing and is subject to their respective privacy policies and data processing agreements.</p>
+
+    <h2>4. Data Security</h2>
+    <ul>
+      <li>All data in transit is encrypted via HTTPS/TLS</li>
+      <li>Audio files are stored with server-side encryption on AWS S3</li>
+      <li>API keys and credentials are stored in AWS Secrets Manager</li>
+      <li>All sessions are scoped to the authenticated user's hospital for data isolation</li>
+      <li>Audit logs are sanitized to strip patient health information (names, identifiers, diagnoses, medications) before storage</li>
+      <li>Every API request requires a valid JWT authentication token</li>
+    </ul>
+
+    <h2>5. Data We Do Not Collect</h2>
+    <ul>
+      <li>Browsing history or web activity outside the active EMR tab</li>
+      <li>Personal information about the clinician (beyond email for authentication)</li>
+      <li>Financial or payment information</li>
+      <li>Device location</li>
+      <li>Keystroke logging, mouse tracking, or click monitoring</li>
+    </ul>
+
+    <h2>6. Your Rights</h2>
+    <p>You may:</p>
+    <ul>
+      <li>Stop recording at any time — no audio is captured without your explicit action</li>
+      <li>Clear your session at any time using the "Clear &amp; Next Patient" button, which removes all in-memory data</li>
+      <li>Uninstall the extension at any time to cease all data processing</li>
+      <li>Request deletion of your data by contacting us at the email below</li>
+    </ul>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this policy as the extension evolves. Material changes will be communicated through the extension's update notes on the Chrome Web Store.</p>
+
+    <h2>8. Contact</h2>
+    <p>For questions about this privacy policy or to request data deletion, contact us at:<br>
+    <a href="mailto:privacy@drpair.com">privacy@drpair.com</a></p>
+
+    <div class="footer">
+      &copy; 2026 PAIRsense. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
